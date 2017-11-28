@@ -22,6 +22,10 @@
 #include <fstream>
 #endif
 
+int slno = 1;
+
+using namespace std;
+
 int setup();
 
 int main(int argc, char *argv[]) {
@@ -35,12 +39,18 @@ int main(int argc, char *argv[]) {
 
 int setup() {       // To create new Assignment
 
+	char fnm[12];
+
+	fstream file;
+	snprintf(fnm, 12, "Assignment %d", slno);
+
 #ifdef WIN32          //If Windows is running
 
 #endif
 
 #ifdef linux          // If Linux is running
-	FILE *fp;
+	file.open("Assignment");
+
 #endif
 	return 0;
 }
