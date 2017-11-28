@@ -25,7 +25,11 @@
 int setup();
 
 int main(int argc, char *argv[]) {
-
+	char log[200], pass[200]; // Temporary Variables to hold login and password details
+	printf("Login: ");
+	scanf("%s", &log);
+	printf("Password: ");
+	scanf("%s", &pass);
 	return 0;
 }
 
