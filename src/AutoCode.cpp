@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
 	return 0;
 }
 
-int setup() {
+int setup() {       // To create new Assignment
 
 #ifdef WIN32          //If Windows is running
 
