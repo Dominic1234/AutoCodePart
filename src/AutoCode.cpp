@@ -29,11 +29,11 @@ using namespace std;
 int setup();
 
 int main(int argc, char *argv[]) {
-	char log[200], pass[200]; // Temporary Variables to hold login and password details
+	char log[20], pass[20]; // Temporary Variables to hold login and password details
 	printf("Login: ");
-	scanf("%s", &log);
+	scanf("%19s", log);
 	printf("Password: ");
-	scanf("%s", &pass);
+	scanf("%19s", pass);
 	return 0;
 }
 
