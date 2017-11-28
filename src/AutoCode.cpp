@@ -49,7 +49,7 @@ int setup() {       // To create new Assignment
 #endif
 
 #ifdef linux          // If Linux is running
-	file.open("Assignment");
+	file.open(fnm); //Creates new file with Assignment+'slno'
 
 #endif
 	return 0;
