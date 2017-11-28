@@ -29,19 +29,22 @@ using namespace std;
 int setup();
 
 int main(int argc, char *argv[]) {
+	fstream file;
+	file.open("Accounts.txt"); // Open file containing login and password details
+
 	char log[20], pass[20]; // Temporary Variables to hold login and password details
 	printf("Login: ");
 	scanf("%19s", log);
 	printf("Password: ");
 	scanf("%19s", pass);
+	system(cls);
 	return 0;
 }
 
 int setup() {       // To create new Assignment
-
+	fstream file;
 	char fnm[12];
 
-	fstream file;
 	snprintf(fnm, 12, "Assignment %d", slno);
 
 #ifdef WIN32          //If Windows is running
