@@ -30,7 +30,7 @@ using namespace std;
 
 int setup();
 int login();
-int std();
+int stud();
 int tchr();
 int dev();
 
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
 		per = login();
 	}while(per == 0);
 	if(per == 1) {    // If permission is 1, then it is a student
-		std();
+		stud();
 	}
 	else if(per == 2) {    // If permission is 2, then it is a teacher
 
@@ -105,7 +105,7 @@ int login() {
 	return 0;
 }
 
-int std() {
+int stud() {
 
 	return 0;
 }
