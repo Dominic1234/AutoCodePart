@@ -6,6 +6,8 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
+#include <iostream>
+
 #ifdef _WIN32
 #include <windows.h>
 #include <stdio.h>
@@ -37,7 +39,7 @@ int dev();
 struct stAccount {
 	int stat;
 	char *name;
-	int points;
+	int grade;
 	int lvl;
 	int Ass;
 	int Q;
@@ -50,14 +52,17 @@ int main(int argc, char *argv[]) {
 	do {
 		per = login();
 	}while(per == 0);
+	if(per == 0) {
+
+	}
 	if(per == 1) {    // If permission is 1, then it is a student
 		stud();
 	}
 	else if(per == 2) {    // If permission is 2, then it is a teacher
-
+		tchr();
 	}
 	else if(per == 3) {    // If permission is 3, then it is a developer
-
+		dev();
 	}
 	return 0;
 }
@@ -106,7 +111,23 @@ int login() {
 }
 
 int stud() {
-
+	char d, temp[200];
+	int err;
+	snprintf(temp, 200, "gcc %s/main.cpp", path);
+	cout << "Copy the file into: " << path << " as main.cpp" << endl;
+	cout << "Enter 'Y' when done: ";
+	cin >> d;
+	if(d == 'y' || d == 'Y')
+		err = system(temp);
+	else
+		return 0;
+	if(err == 0) {
+		cout << "Compilation Successfull!/n";
+		system("gcc ./a.out");
+	}
+	else if(err == 1) {
+		cout << "Error/n";
+	}
 	return 0;
 }
 
