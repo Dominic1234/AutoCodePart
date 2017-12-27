@@ -112,13 +112,13 @@ int login() {
 
 int stud() {
 	char d, temp[200];
-	int err;
-	snprintf(temp, 200, "gcc %s/main.cpp", path);
+	int err; // check whether compilation was successful
+	snprintf(temp, 200, "gcc %s/main.cpp", path);// create a character array for path of file to compile.
 	cout << "Copy the file into: " << path << " as main.cpp" << endl;
 	cout << "Enter 'Y' when done: ";
 	cin >> d;
-	if(d == 'y' || d == 'Y')
-		err = system(temp);
+	if(d == 'y' || d == 'Y') //When student is done placing file,
+		err = system(temp); // compile and store result. 0 if successful
 	else
 		return 0;
 	if(err == 0) {
