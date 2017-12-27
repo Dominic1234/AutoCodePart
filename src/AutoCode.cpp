@@ -1,7 +1,7 @@
 //============================================================================
-// Name        : AutoCode.cpp
-// Author      : dhruv
-// Version     :
+// Name        :AutoCode.cpp
+// Author      :Dhruv
+// Version     :1.0.0
 // Copyright   : copyright
 // Description : Hello World in C++, Ansi-style
 //============================================================================
