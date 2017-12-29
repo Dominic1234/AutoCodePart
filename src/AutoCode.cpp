@@ -6,8 +6,11 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
+// Universal Libraries
 #include <iostream>
+#include <fstream>
 
+// Start of OS specific libraries
 #ifdef _WIN32
 #include <windows.h>
 #include <stdio.h>
@@ -22,9 +25,9 @@ char path[500] = "D:/";
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <fstream>
 char path[500] = "/home/AutoCode/";
 #endif
+// End of OS specific libraries
 
 int slno = 1;
 
@@ -74,7 +77,9 @@ int setup() {       // To create new Assignment
 	snprintf(fnm, 12, "Assignment %d", slno);
 
 #ifdef WIN32          //If Windows is running
-
+	system("mkdir Assignment ");
+		file.open(fnm); //Creates new file with Assignment+'slno'
+		file.close();
 #endif
 
 #ifdef linux          // If Linux is running
