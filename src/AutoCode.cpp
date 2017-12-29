@@ -29,6 +29,7 @@ char path[500] = "/home/AutoCode/";
 #endif
 // End of OS specific libraries
 
+// Begin Declaration
 int slno = 1;
 
 using namespace std;
@@ -48,6 +49,7 @@ struct stAccount {
 	int Ass; // Last Assignment of student
 	int Q; // Question of current Assignment
 };
+// End Declaration
 
 	stAccount ac;
 
