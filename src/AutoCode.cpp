@@ -35,14 +35,15 @@ int login();
 int stud();
 int tchr();
 int dev();
+int test();
 
 struct stAccount {
-	int stat;
+	int stat; //Student, Teacher or Developer
 	char *name;
-	int grade;
-	int lvl;
-	int Ass;
-	int Q;
+	int grade; //Grade of student
+	int pnts; // How many points has the student earned
+	int Ass; // Last Assignment of student
+	int Q; // Question of current Assignment
 };
 
 	stAccount ac;
@@ -85,11 +86,14 @@ int setup() {       // To create new Assignment
 }
 
 int login() {
-	char lc[20], pc[20];
+	char lc[20], pc[20], temp;
 	int stat = 0; // Stat variable is for indicating to Users Account status. Student, Teacher, Developer.
 	fstream file;
-	file.open("Accounts.txt"); // Open file containing login and password details
-	char log[20], pass[20]; // Temporary Variables to hold login and password details
+	file.open("accounts.txt"); // Open file containing login and password details
+	char log[20], pass[20], pc[20]; // Temporary Variables to hold login and password details
+
+	login:
+
 	printf("Login: ");
 	scanf("%s", log);
 	printf("Password: ");
@@ -97,13 +101,35 @@ int login() {
 	while(!file.eof()) {
 		//scanf(file,"%s %s %d:", lc, pc, &stat);
 		if(strcmp(lc, log)) {
-			if(!strcmp(pc, pass)) {
-				printf("Unidentified Login or Password. Try Again\n");
-			}
-			else {
+			if(strcmp(pc, pass)) {
 				ac.stat = stat;
 				return stat;
 			}
+			else {
+				cout << "Wrong Password.\n";
+			}
+		}
+	}
+	cout << "Unidentified User\n Create new Account?(y/n)";
+	cin >> temp;
+	if(temp == 'y' || temp == 'Y') {
+
+		add:
+
+		cout << "Enter login: ";
+		scanf("%s", log);
+		cout << "Enter password: ";
+		scanf("%s", pass);
+		cout << "Retype password: ";
+		scanf("%s", pc);
+		if(strcmp(pc, pass)) {
+			//file.(); Append account credentials to new account.
+			cout << "New Account Added. Login again.";
+			goto login;
+		}
+		else {
+			cout << "Passwords don't match, try again: \n";
+			goto add;
 		}
 	}
 	file.close();
@@ -111,6 +137,7 @@ int login() {
 }
 
 int stud() {
+	int res; // result of testcases
 	char d, temp[200];
 	int err; // check whether compilation was successful
 	snprintf(temp, 200, "gcc %s/main.cpp", path);// create a character array for path of file to compile.
@@ -123,7 +150,13 @@ int stud() {
 		return 0;
 	if(err == 0) {
 		cout << "Compilation Successfull!/n";
-		system("gcc ./a.out");
+		res = test(); //If compilation was successful, check against testcases.
+		if(res == 0) { //Passed all testcases
+			cout << "Congratulations! All answers were right!";
+		}
+		else { // Wrong answer
+
+		}
 	}
 	else if(err == 1) {
 		cout << "Error/n";
@@ -136,5 +169,10 @@ int tchr() {
 }
 
 int dev() {
+	return 0;
+}
+
+int test () {
+	system("gcc ./a.out");
 	return 0;
 }
